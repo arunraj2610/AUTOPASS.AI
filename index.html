@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AutoPass AI</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><h1>AutoPass AI</h1><nav role="tablist">
+  <button role="tab" data-tab="student" class="on">Student</button>
+  <button role="tab" data-tab="warden">Warden</button>
+  <button role="tab" data-tab="gate">Gate check</button></nav></header>
+<main>
+  <section id="student" class="tab">
+    <h2>Request an outpass</h2>
+    <div class="form">
+      <label>Name<input id="name"></label>
+      <label>Roll number<input id="rollNo"></label>
+      <label>Leaving at<input id="outTime" type="datetime-local"></label>
+      <label>Returning at<input id="returnTime" type="datetime-local"></label>
+      <label>Guardian phone<input id="guardianPhone" inputmode="numeric" maxlength="10"></label>
+      <label class="wide">Reason<textarea id="reason" rows="2"></textarea></label>
+      <button id="submit" class="wide">Submit request</button>
+    </div>
+    <p id="submitMsg" role="status"></p>
+    <h3>My requests</h3><div id="mine"></div>
+  </section>
+  <section id="warden" class="tab" hidden><h2>Pending approvals</h2><div id="pending"></div></section>
+  <section id="gate" class="tab" hidden>
+    <h2>Verify a pass</h2>
+    <div class="form"><label class="wide">Pass code (printed under the QR)<input id="code" placeholder="AP-1A2B3C-XYZ12"></label>
+    <button id="verify" class="wide">Verify</button></div><div id="verdict"></div>
+  </section>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="scoring.js"></script><script src="app.js"></script>
+</body></html>
